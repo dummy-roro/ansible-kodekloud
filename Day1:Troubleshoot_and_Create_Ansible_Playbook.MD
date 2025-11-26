@@ -45,7 +45,13 @@ thor@jumphost ~$ ansible -i inventory stapp01 -m ping
 ```
 ### Expected output:
 ```ini
-stapp01 | SUCCESS => { "changed": false, "ping": "pong" }
+stapp01 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
 ```
 
 ### If unreachable, check the inventory SSH credentials.
